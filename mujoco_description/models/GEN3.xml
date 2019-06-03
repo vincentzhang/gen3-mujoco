@@ -1,0 +1,54 @@
+<mujoco model="JACO3_URDF_V11">
+	<compiler angle="radian"/>
+	<size njmax="500" nconmax="100"/>
+	<asset>
+		<mesh name="base_link" file="base_link.STL"/>
+		<mesh name="Shoulder_Link" file="Shoulder_Link.STL"/>
+		<mesh name="HalfArm1_Link" file="HalfArm1_Link.STL"/>
+		<mesh name="HalfArm2_Link" file="HalfArm2_Link.STL"/>
+		<mesh name="ForeArm_Link" file="ForeArm_Link.STL"/>
+		<mesh name="SphericalWrist1_Link" file="SphericalWrist1_Link.STL"/>
+		<mesh name="SphericalWrist2_Link" file="SphericalWrist2_Link.STL"/>
+		<mesh name="Bracelet_Link" file="Bracelet_Link.STL"/>
+	</asset>
+	<worldbody>
+		<geom type="mesh" rgba="0.79216 0.81961 0.93333 1" mesh="base_link"/>
+		<body name="Shoulder_Link" pos="6.1995e-05 0 0.15643" quat="-3.67321e-06 -1 0 0">
+			<inertial pos="-2.3e-05 -0.010364 -0.07336" quat="0.707051 0.0451246 -0.0453544 0.704263" mass="1.37735" diaginertia="0.00488868 0.00457 0.00135132"/>
+			<joint name="Actuator1" pos="0 0 0" axis="0 0 1"/>
+			<geom type="mesh" rgba="0.75294 0.75294 0.75294 1" mesh="Shoulder_Link"/>
+			<body name="HalfArm1_Link" pos="0 0.005375 -0.12838" quat="0.707105 0.707108 0 0">
+				<inertial pos="-4.4e-05 -0.09958 -0.013278" quat="0.482348 0.516286 -0.516862 0.483366" mass="1.16367" diaginertia="0.0113017 0.011088 0.00102532"/>
+				<joint name="Actuator2" pos="0 0 0" axis="0 0 1" limited="true" range="-2.2 2.2"/>
+				<geom type="mesh" rgba="0.75294 0.75294 0.75294 1" mesh="HalfArm1_Link"/>
+				<body name="HalfArm2_Link" pos="0 -0.21038 -0.006375" quat="0.707105 -0.707108 0 0">
+					<inertial pos="-4.4e-05 -0.006641 -0.117892" quat="0.706144 0.0213722 -0.0209128 0.707437" mass="1.16366" diaginertia="0.0111633 0.010932 0.00100671"/>
+					<joint name="Actuator3" pos="0 0 0" axis="0 0 1"/>
+					<geom type="mesh" rgba="0.75294 0.75294 0.75294 1" mesh="HalfArm2_Link"/>
+					<body name="ForeArm_Link" pos="0 0.006375 -0.21038" quat="0.707105 0.707108 0 0">
+						<inertial pos="-1.8e-05 -0.075478 -0.015006" quat="0.483678 0.515961 -0.515859 0.483455" mass="0.930287" diaginertia="0.00834839 0.008147 0.000598606"/>
+						<joint name="Actuator4" pos="0 0 0" axis="0 0 1" limited="true" range="-2.5656 2.5656"/>
+						<geom type="mesh" rgba="0.75294 0.75294 0.75294 1" mesh="ForeArm_Link"/>
+						<body name="SphericalWrist1_Link" pos="0 -0.20843 -0.006375" quat="0.707105 -0.707108 0 0">
+							<inertial pos="1e-06 -0.009432 -0.063883" quat="0.703558 0.0707492 -0.0707492 0.703558" mass="0.678106" diaginertia="0.00165901 0.001596 0.000346988"/>
+							<joint name="Actuator5" pos="0 0 0" axis="0 0 1"/>
+							<geom type="mesh" rgba="0.75294 0.75294 0.75294 1" mesh="SphericalWrist1_Link"/>
+							<body name="SphericalWrist2_Link" pos="0 0.00017505 -0.10593" quat="0.707105 0.707108 0 0">
+								<inertial pos="1e-06 -0.045483 -0.00965" quat="0.44426 0.550121 -0.550121 0.44426" mass="0.678106" diaginertia="0.00170087 0.001641 0.00035013"/>
+								<joint name="Actuator6" pos="0 0 0" axis="0 0 1" limited="true" range="-2.05 2.05"/>
+								<geom type="mesh" rgba="0.75294 0.75294 0.75294 1" mesh="SphericalWrist2_Link"/>
+								<body name="Bracelet_Link" pos="0 -0.10593 -0.00017505" quat="0.707105 -0.707108 0 0">
+									<inertial pos="-0.000281 -0.011402 -0.03108" quat="0.592556 0.413116 -0.393675 0.568536" mass="0.500657" diaginertia="0.000650457 0.00056985 0.000310694"/>
+									<joint name="Actuator7" pos="0 0 0" axis="0 0 1"/>
+									<geom type="mesh" rgba="0.75294 0.75294 0.75294 1" mesh="Bracelet_Link"/>
+								</body>
+							</body>
+						</body>
+					</body>
+				</body>
+			</body>
+		</body>
+		<light directional="false" cutoff="90" exponent="1" diffuse="1 1 1" specular="0 0 0" pos="1 0 1.5" dir="-1 0 -2.5"/>
+	</worldbody>
+</mujoco>
+
