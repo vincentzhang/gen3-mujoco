@@ -1,0 +1,22 @@
+<mujoco model="example">
+	<compiler coordinate="global"/>
+
+	<default>
+		<geom rgba="1 1 0 1"/>
+	</default>
+
+	<asset>
+		<texture type="skybox" builtin="gradient" rgb1="0 1 1" rgb2=".6 .2 1" width="256" height="256"/>
+	</asset>
+
+	<worldbody>
+		<body>
+			<geom type="capsule" fromto="0 0 1  0 0 0.6" size="0.06"/>
+			
+			<body>
+				<geom type="capsule" fromto="0 0 0.6  0.3 0 0.6" size="0.04"/>
+			</body>
+		</body>
+
+	</worldbody>
+</mujoco>
