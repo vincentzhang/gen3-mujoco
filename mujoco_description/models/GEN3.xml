@@ -1,15 +1,15 @@
-<mujoco model="JACO3_URDF_V11">
+<mujoco model="GEN3_URDF_V11">
 	<compiler angle="radian"/>
 	<size njmax="500" nconmax="100"/>
 	<asset>
-		<mesh name="base_link" file="base_link.STL"/>
-		<mesh name="Shoulder_Link" file="Shoulder_Link.STL"/>
-		<mesh name="HalfArm1_Link" file="HalfArm1_Link.STL"/>
-		<mesh name="HalfArm2_Link" file="HalfArm2_Link.STL"/>
-		<mesh name="ForeArm_Link" file="ForeArm_Link.STL"/>
-		<mesh name="SphericalWrist1_Link" file="SphericalWrist1_Link.STL"/>
-		<mesh name="SphericalWrist2_Link" file="SphericalWrist2_Link.STL"/>
-		<mesh name="Bracelet_Link" file="Bracelet_Link.STL"/>
+		<mesh name="base_link" file="gen3/Base_Link.stl"/>
+		<mesh name="Shoulder_Link" file="gen3/Shoulder_Link.stl"/>
+		<mesh name="HalfArm1_Link" file="gen3/HalfArm1_Link.stl"/>
+		<mesh name="HalfArm2_Link" file="gen3/HalfArm2_Link.stl"/>
+		<mesh name="ForeArm_Link" file="gen3/ForeArm_Link.stl"/>
+		<mesh name="SphericalWrist1_Link" file="gen3/SphericalWrist1_Link.stl"/>
+		<mesh name="SphericalWrist2_Link" file="gen3/SphericalWrist2_Link.stl"/>
+		<mesh name="Bracelet_Link" file="gen3/Bracelet_Link.stl"/>
 	</asset>
 	<worldbody>
 		<geom type="mesh" rgba="0.79216 0.81961 0.93333 1" mesh="base_link"/>
