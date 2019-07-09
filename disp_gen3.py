@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 """
-Displays robot Gen3 
+Displays Kinova Gen3 robotic arm with Robotiq gripper
 """
 from mujoco_py import load_model_from_path, MjSim, MjViewer
 from mujoco_py.modder import TextureModder
 import os
 
-#model = load_model_from_path("models/gen3_robotiq.xml") # without actuator parameters
-model = load_model_from_path("models/gen3.xml") # with actuator parameters
+model = load_model_from_path("models/Gen3Robotiq.xml")
 sim = MjSim(model)
 
 viewer = MjViewer(sim)
