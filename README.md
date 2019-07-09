@@ -3,6 +3,5 @@ Mujoco model of the Kinova Gen3 robot
 
 ## Example
 ```
-    cd mujoco_description
-    python disp_gen3.py
+    python gen3.py
 ```
