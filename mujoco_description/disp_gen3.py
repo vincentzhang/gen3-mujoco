@@ -6,8 +6,8 @@ from mujoco_py import load_model_from_path, MjSim, MjViewer
 from mujoco_py.modder import TextureModder
 import os
 
-# model = load_model_from_path("models/GEN3.xml")
-model = load_model_from_path("models/gen3_robotiq.xml")
+#model = load_model_from_path("models/gen3_robotiq.xml") # without actuator parameters
+model = load_model_from_path("models/gen3.xml") # with actuator parameters
 sim = MjSim(model)
 
 viewer = MjViewer(sim)

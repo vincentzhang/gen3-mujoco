@@ -2,7 +2,7 @@
 	<compiler angle="radian"/>
 	<size njmax="500" nconmax="100"/>
 	<asset>
-		<mesh name="base_link" file="gen3/Base_Link.stl"/>
+		<mesh name="Base_Link" file="gen3/Base_Link.stl"/>
 		<mesh name="Shoulder_Link" file="gen3/Shoulder_Link.stl"/>
 		<mesh name="HalfArm1_Link" file="gen3/HalfArm1_Link.stl"/>
 		<mesh name="HalfArm2_Link" file="gen3/HalfArm2_Link.stl"/>
@@ -12,7 +12,7 @@
 		<mesh name="Bracelet_Link" file="gen3/Bracelet_Link.stl"/>
 	</asset>
 	<worldbody>
-		<geom type="mesh" rgba="0.79216 0.81961 0.93333 1" mesh="base_link"/>
+		<geom type="mesh" rgba="0.79216 0.81961 0.93333 1" mesh="Base_Link"/>
 		<body name="Shoulder_Link" pos="6.1995e-05 0 0.15643" quat="-3.67321e-06 -1 0 0">
 			<inertial pos="-2.3e-05 -0.010364 -0.07336" quat="0.707051 0.0451246 -0.0453544 0.704263" mass="1.37735" diaginertia="0.00488868 0.00457 0.00135132"/>
 			<joint name="Actuator1" pos="0 0 0" axis="0 0 1"/>

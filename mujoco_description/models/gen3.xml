@@ -1,20 +1,6 @@
-<mujoco model="GEN3_MJCF">
+<mujoco model="JACO3_XML_V11">
 	<compiler angle="radian"/>
-    <!-- <option gravity="0 0 0" cone="elliptic" timestep="0.02" /> -->
 	<size njmax="500" nconmax="100"/>
-
-    <visual>
-        <map znear="0.001" />
-    </visual>
-
-    <default>
-        <light castshadow="false" diffuse="1 1 1" />
-        <!-- <joint frictionloss="1" damping="1" /> -->
-        <motor gear="0.8"/>
-        <velocity kv="10"/>
-        <position kp="5"/>
-    </default>
-
 	<asset>
 		<!-- Gen3 Arm Meshes -->
 		<mesh name="Base_Link" file="gen3/Base_Link.stl"/>
@@ -31,55 +17,58 @@
 		<mesh name="outer_finger_coarse" file="robotiq/outer_finger_coarse.stl"/>
 		<mesh name="inner_knuckle_coarse" file="robotiq/inner_knuckle_coarse.stl"/>
 		<mesh name="inner_finger_coarse" file="robotiq/inner_finger_coarse.stl"/>
-		<!-- Materials -->
-		<material name="BasketMat" specular="0" shininess="0" reflectance="0" rgba="0.26 0.16 0.16796875 1" emission="0" />
 	</asset>
 
+    <actuator>
+        <motor name="Shoulder_Link_motor" joint="Actuator1" gear="1 0 0 0 0 0" ctrlrange="0 0.8727" forcerange="-39 39"/>
+        <motor name="HalfArm1_Link_motor" joint="Actuator2" gear="1 0 0 0 0 0" ctrlrange="0 0.8727" forcerange="-39 39"/>
+        <motor name="HalfArm2_Link_motor" joint="Actuator3" gear="1 0 0 0 0 0" ctrlrange="0 0.8727" forcerange="-39 39"/>
+        <motor name="ForeArm_Link_motor" joint="Actuator4" gear="1 0 0 0 0 0" ctrlrange="0 0.8727" forcerange="-39 39"/>
+        <motor name="SphericalWrist1_Link_motor" joint="Actuator5" gear="1 0 0 0 0 0" ctrlrange="0 0.8727" forcerange="-9 9"/>
+        <motor name="SphericalWrist2_Link_motor" joint="Actuator6" gear="1 0 0 0 0 0" ctrlrange="0 0.8727" forcerange="-9 9"/>
+        <motor name="Bracelet_Link_motor" joint="Actuator7" gear="1 0 0 0 0 0" ctrlrange="0 0.8727" forcerange="-9 9"/>
+    </actuator>
+
 	<worldbody>
-        <light directional="true" pos="-0.5 0.5 3" dir="0 0 -1" />
-        <light directional="false" pos="-0.5 0.5 1.5" dir="0 -1 0" />
-<!--         <geom name="workbench_down" pos="-0.6 0.6 -0.25" size="0.6 0.6 0.25" type="box" rgba="0 0 0 1" material="BasketMat" /> -->
-		<!-- Set up floor and walls -->
- 		<geom name="floor" pos="0 0 -0.66" size="10 10 1" type="plane" rgba="1 0.83 0.61 1" material="BasketMat" />
-        <geom name="wall_1" pos="0 -2.5 1" size="2.5 2.5 1" type="plane" quat="0.707107 -0.707107 0 0" rgba="0.95 0.95 0.95 1" material="BasketMat" />
-        <geom name="wall_2" pos="-2.5 0 1" size="2.5 2.5 1" type="plane" quat="0.707107 0 0.707107 0" rgba="0.95 0.95 0.95 1" material="BasketMat" />
-        <!-- World Base Link -->
-		<geom type="mesh" rgba="0.79216 0.81961 0.93333 1" mesh="Base_Link"/>
-		<!-- Kinova Gen3 Arm Links -->
-		<body name="Shoulder_Link" pos="6.1995e-05 0 0.15643" quat="-3.67321e-06 -1 0 0">
-			<inertial pos="-2.3e-05 -0.010364 -0.07336" quat="0.707051 0.0451246 -0.0453544 0.704263" mass="1.37735" diaginertia="0.00488868 0.00457 0.00135132"/>
-			<joint name="joint1" pos="0 0 0" axis="0 0 1"/>
+		<body name="Base_Link" pos="0 0 0">
+			<inertial pos="-0.000648 -0.000166 0.084487" mass="1.697353" fullinertia="0.004622 0.004495 0.002079 -9E-06 -6E-05 -9E-06"/>
+			<geom type="mesh" rgba="0.79216 0.81961 0.93333 1" mesh="Base_Link"/>
+
+		    <body name="Shoulder_Link" pos="6.1995e-05 0 0.15643" quat="-3.67321e-06 -1 0 0">
+			<inertial pos="-2.3e-05 -0.010364 -0.07336" quat="0.707051 0.0451246 -0.0453544 0.704263" mass="1.37735" fullinertia="0.00457 0.004831 0.001409 -1E-06 -2E-06 -0.000448"/>
+			<joint name="Actuator1" pos="0 0 0" axis="0 0 1"/>
 			<geom type="mesh" rgba="0.75294 0.75294 0.75294 1" mesh="Shoulder_Link"/>
 
 			<body name="HalfArm1_Link" pos="0 0.005375 -0.12838" quat="0.707105 0.707108 0 0">
 				<inertial pos="-4.4e-05 -0.09958 -0.013278" quat="0.482348 0.516286 -0.516862 0.483366" mass="1.16367" diaginertia="0.0113017 0.011088 0.00102532"/>
-				<joint name="joint2" pos="0 0 0" axis="0 0 1" limited="true" range="-2.2 2.2"/>
+				<joint name="Actuator2" pos="0 0 0" axis="0 0 1" limited="true" range="-2.2 2.2"/>
 				<geom type="mesh" rgba="0.75294 0.75294 0.75294 1" mesh="HalfArm1_Link"/>
 
 				<body name="HalfArm2_Link" pos="0 -0.21038 -0.006375" quat="0.707105 -0.707108 0 0">
 					<inertial pos="-4.4e-05 -0.006641 -0.117892" quat="0.706144 0.0213722 -0.0209128 0.707437" mass="1.16366" diaginertia="0.0111633 0.010932 0.00100671"/>
-					<joint name="joint3" pos="0 0 0" axis="0 0 1"/>
+					<joint name="Actuator3" pos="0 0 0" axis="0 0 1"/>
 					<geom type="mesh" rgba="0.75294 0.75294 0.75294 1" mesh="HalfArm2_Link"/>
 
 					<body name="ForeArm_Link" pos="0 0.006375 -0.21038" quat="0.707105 0.707108 0 0">
 						<inertial pos="-1.8e-05 -0.075478 -0.015006" quat="0.483678 0.515961 -0.515859 0.483455" mass="0.930287" diaginertia="0.00834839 0.008147 0.000598606"/>
-						<joint name="joint4" pos="0 0 0" axis="0 0 1" limited="true" range="-2.5656 2.5656"/>
+						<joint name="Actuator4" pos="0 0 0" axis="0 0 1" limited="true" range="-2.5656 2.5656"/>
 						<geom type="mesh" rgba="0.75294 0.75294 0.75294 1" mesh="ForeArm_Link"/>
 
 						<body name="SphericalWrist1_Link" pos="0 -0.20843 -0.006375" quat="0.707105 -0.707108 0 0">
 							<inertial pos="1e-06 -0.009432 -0.063883" quat="0.703558 0.0707492 -0.0707492 0.703558" mass="0.678106" diaginertia="0.00165901 0.001596 0.000346988"/>
-							<joint name="joint5" pos="0 0 0" axis="0 0 1"/>
+							<joint name="Actuator5" pos="0 0 0" axis="0 0 1"/>
 							<geom type="mesh" rgba="0.75294 0.75294 0.75294 1" mesh="SphericalWrist1_Link"/>
 
 							<body name="SphericalWrist2_Link" pos="0 0.00017505 -0.10593" quat="0.707105 0.707108 0 0">
 								<inertial pos="1e-06 -0.045483 -0.00965" quat="0.44426 0.550121 -0.550121 0.44426" mass="0.678106" diaginertia="0.00170087 0.001641 0.00035013"/>
-								<joint name="joint6" pos="0 0 0" axis="0 0 1" limited="true" range="-2.05 2.05"/>
+								<joint name="Actuator6" pos="0 0 0" axis="0 0 1" limited="true" range="-2.05 2.05"/>
 								<geom type="mesh" rgba="0.75294 0.75294 0.75294 1" mesh="SphericalWrist2_Link"/>
 
 								<body name="Bracelet_Link" pos="0 -0.10593 -0.00017505" quat="0.707105 -0.707108 0 0">
 									<inertial pos="-0.000281 -0.011402 -0.03108" quat="0.592556 0.413116 -0.393675 0.568536" mass="0.500657" diaginertia="0.000650457 0.00056985 0.000310694"/>
-									<joint name="joint7" pos="0 0 0" axis="0 0 1"/>
+									<joint name="Actuator7" pos="0 0 0" axis="0 0 1"/>
 									<geom type="mesh" rgba="0.75294 0.75294 0.75294 1" mesh="Bracelet_Link"/>
+
 									<!-- Robotiq Gripper Links -->
 									<body name="ee_link" pos="0 0 -0.0719" quat="0.707105 -0.707108 0 0">
 										<inertial pos="-0.01 0 0" mass="0.001"  diaginertia="1.66667e-08 1.66667e-08 1.66667e-08" />
@@ -134,17 +123,8 @@
 				</body>
 			</body>
 		</body>
+        </body>
 		<light directional="false" cutoff="90" exponent="1" diffuse="1 1 1" specular="0 0 0" pos="1 0 1.5" dir="-1 0 -2.5"/>
 	</worldbody>
-    <actuator>
-        <!-- <motor name="close_1" joint="joint7_1" gear="0.2 0 0 0 0 0" /> -->
-        <!-- <motor name="close_2" joint="joint7_2" gear="0.2 0 0 0 0 0" /> -->
-        <motor name="joint1_motor" joint="joint1" gear="1.2"/>
-        <motor name="joint2_motor" joint="joint2"/>
-        <motor name="joint3_motor" joint="joint3"/>
-        <motor name="joint4_motor" joint="joint4"/>
-        <motor name="joint5_motor" joint="joint5"/>
-        <motor name="joint6_motor" joint="joint6"/>
-    </actuator>
 </mujoco>
 

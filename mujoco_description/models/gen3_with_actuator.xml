@@ -2,14 +2,14 @@
 	<compiler angle="radian"/>
 	<size njmax="500" nconmax="100"/>
 	<asset>
-		<mesh name="base_link" file="base_link.STL"/>
-		<mesh name="Shoulder_Link" file="Shoulder_Link.STL"/>
-		<mesh name="HalfArm1_Link" file="HalfArm1_Link.STL"/>
-		<mesh name="HalfArm2_Link" file="HalfArm2_Link.STL"/>
-		<mesh name="ForeArm_Link" file="ForeArm_Link.STL"/>
-		<mesh name="SphericalWrist1_Link" file="SphericalWrist1_Link.STL"/>
-		<mesh name="SphericalWrist2_Link" file="SphericalWrist2_Link.STL"/>
-		<mesh name="Bracelet_Link" file="Bracelet_Link.STL"/>
+		<mesh name="Base_Link" file="gen3/Base_Link.stl"/>
+		<mesh name="Shoulder_Link" file="gen3/Shoulder_Link.stl"/>
+		<mesh name="HalfArm1_Link" file="gen3/HalfArm1_Link.stl"/>
+		<mesh name="HalfArm2_Link" file="gen3/HalfArm2_Link.stl"/>
+		<mesh name="ForeArm_Link" file="gen3/ForeArm_Link.stl"/>
+		<mesh name="SphericalWrist1_Link" file="gen3/SphericalWrist1_Link.stl"/>
+		<mesh name="SphericalWrist2_Link" file="gen3/SphericalWrist2_Link.stl"/>
+		<mesh name="Bracelet_Link" file="gen3/Bracelet_Link.stl"/>
 	</asset>
     <actuator>
         <motor name="Shoulder_Link" joint="Actuator1" gear="1 0 0 0 0 0" ctrlrange="0 0.8727" forcerange="-39 39"/>
@@ -22,9 +22,9 @@
     </actuator>
 
 	<worldbody>
-		<body name="base_link" pos="0 0 0">
+		<body name="Base_Link" pos="0 0 0">
 			<inertial pos="-0.000648 -0.000166 0.084487" mass="1.697353" fullinertia="0.004622 0.004495 0.002079 -9E-06 -6E-05 -9E-06"/>
-			<geom type="mesh" rgba="0.79216 0.81961 0.93333 1" mesh="base_link"/>
+			<geom type="mesh" rgba="0.79216 0.81961 0.93333 1" mesh="Base_Link"/>
 
 		    <body name="Shoulder_Link" pos="6.1995e-05 0 0.15643" quat="-3.67321e-06 -1 0 0">
 			<inertial pos="-2.3e-05 -0.010364 -0.07336" quat="0.707051 0.0451246 -0.0453544 0.704263" mass="1.37735" fullinertia="0.00457 0.004831 0.001409 -1E-06 -2E-06 -0.000448"/>
