@@ -74,7 +74,7 @@
 									<geom type="mesh" rgba="0.75294 0.75294 0.75294 1" mesh="Bracelet_Link"/>
 
 									<!-- Robotiq Gripper Links -->
-									<body name="ee_link" pos="0 0 -0.0719" quat="0.707105 -0.707108 0 0">
+									<body name="ee_link" pos="0 0 -0.064" quat="0.707105 -0.707108 0 0">
 										<inertial pos="-0.01 0 0" mass="0.001"  diaginertia="1.66667e-08 1.66667e-08 1.66667e-08" />
 										<geom size="0.005 0.005 0.005" friction="0.8 0.8 0.8" pos="-0.01 0 0" type="box" />
 
