@@ -8,7 +8,7 @@ import os
 
 xml_path = "models/Gen3Robotiq.xml"
 
-class gen3_env():
+class gen3_env(object):
     def __init__(self):
         #super(lab_env, self).__init__(env)
         # The real-world simulator
