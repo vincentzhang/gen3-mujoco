@@ -1,6 +1,11 @@
+"""
+Run before using this file:
+    unset LD_PRELOAD
+"""
 import argparse
 import sys
 import os
+from datetime import datetime
 
 import gym
 from gym import wrappers, logger
@@ -29,7 +34,9 @@ if __name__ == '__main__':
     # directory, including one with existing data -- all monitor files
     # will be namespaced). You can also dump to a tempdir if you'd
     # like: tempfile.mkdtemp().
-    outdir = os.path.dirname(os.path.abspath(__file__)) + '/results/random-agent-results'
+    # today = datetime.now() 
+    # print(datetime.now() .strftime("%y%m%d%H%M%S"))
+    outdir = os.path.dirname(os.path.abspath(__file__)) + '/results/random-agent-results/' + datetime.now() .strftime("%m%d%H%M")
     env = wrappers.Monitor(env, directory=outdir, force=True)
     env.seed(0)
     agent = RandomAgent(env.action_space)
