@@ -43,6 +43,7 @@ if __name__ == '__main__':
         while True:
             action = agent.act(ob, reward, done)
             ob, reward, done, _ = env.step(action)
+            #env.sim.render(500, 500) # does not work yet
             if done:
                 break
             # Note there's no env.render() here. But the environment still can open window and
