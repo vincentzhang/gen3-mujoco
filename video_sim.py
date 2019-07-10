@@ -50,11 +50,13 @@ if __name__ == '__main__':
         while True:
             action = agent.act(ob, reward, done)
             ob, reward, done, _ = env.step(action)
+            #env.sim.render(500, 500) # does not work yet
             if done:
                 break
             # Note there's no env.render() here. But the environment still can open window and
             # render if asked by env.monitor: it calls env.render('rgb_array') to record video.
             # Video is not recorded every episode, see capped_cubic_video_schedule for details.
-
+            # if the number of episodes are smaller than 1k, it only saves the episode with an id of id**3
+            # otherwise it only saves the episode with an id of multiples of 1k
     # Close the env and write monitor result info to disk
     env.close()
