@@ -17,6 +17,8 @@ Mujoco model of the Kinova Gen3 robot
 
 ## Examples:
 ```
+    # Display the environment in mujoco
     python gen3.py
-    python random_agent.py
+    # Run random agent through openai gym
+    LD_PRELOAD="" python random_agent.py
 ```
