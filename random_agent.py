@@ -1,5 +1,6 @@
 import argparse
 import sys
+import os
 
 import gym
 from gym import wrappers, logger
@@ -14,6 +15,7 @@ class RandomAgent(object):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=None)
+    # parser.add_argument('env_id', nargs='?', default='FetchReach-v1', help='Select the environment to run')
     parser.add_argument('env_id', nargs='?', default='Gen3-v0', help='Select the environment to run')
     args = parser.parse_args()
 
@@ -27,7 +29,7 @@ if __name__ == '__main__':
     # directory, including one with existing data -- all monitor files
     # will be namespaced). You can also dump to a tempdir if you'd
     # like: tempfile.mkdtemp().
-    outdir = '/tmp/random-agent-results'
+    outdir = os.path.dirname(os.path.abspath(__file__)) + '/results/random-agent-results'
     env = wrappers.Monitor(env, directory=outdir, force=True)
     env.seed(0)
     agent = RandomAgent(env.action_space)
