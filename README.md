@@ -8,14 +8,14 @@ Mujoco model of the Kinova Gen3 robot
     pip3 install -e '.[all]'
 ```
 
-## If you have already cloned the repo and only want to add the submodule, then do
+## If you have already cloned the repo and only want to add the submodule, then do:
 ```
     git submodule update --init --recursive
     cd gym
     pip3 install -e '.[all]'
 ```
 
-## Examples
+## Examples:
 ```
     python gen3.py
     python random_agent.py
