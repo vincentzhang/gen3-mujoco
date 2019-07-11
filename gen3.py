@@ -22,7 +22,7 @@ class gen3_env(object):
     	print(self.sim.data.qpos)
     	# self.sim.data.ctrl[:] = 0.0
     	for i in range(len(self.sim.data.qvel)):
-    		self.sim.data.qvel[i] = 1.0
+    		self.sim.data.qvel[i] = 0.1
     	# self.sim.forward()
 
 if __name__ == '__main__':
