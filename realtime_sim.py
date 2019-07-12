@@ -19,6 +19,8 @@ class RandomAgent(object):
         self.action_space = action_space
 
     def act(self, observation, reward, done):
+        # if isinstance(self.action_space, spaces.Box):
+            # print("action space is a Box")
         return self.action_space.sample()
 
 
@@ -88,10 +90,16 @@ if __name__ == '__main__':
         env.render(mode='human')
         print("Starting a new trajectory")
         for t in range(args.max_steps) if args.max_steps else itertools.count():
+            print("\nSTEP #", t)
             done = False
             action = agent.act(obs, reward, done)
+            # print(action)
             time.sleep(1.0 / fps)
-            ob, reward, done, _ = env.step(action)
+            obs, reward, done, info = env.step(action)
+            print("observation: \n\tobservation:\t", obs['observation'], "\n\tachieved_goal:\t", obs['achieved_goal'], "\n\tdesired_goal:\t", obs['desired_goal'])
+            print("reward:", reward)
+            print("done:", done)
+            print("info:\tis_success:", info['is_success'])
             env.render()
             if done and not args.ignore_done:
                 break
