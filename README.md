@@ -20,5 +20,5 @@ Mujoco model of the Kinova Gen3 robot
     # Display the environment in mujoco
     python gen3.py
     # Run random agent through openai gym
-    LD_PRELOAD="" python random_agent.py
+    LD_PRELOAD="" python realtime_sim.py
 ```
