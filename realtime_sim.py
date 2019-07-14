@@ -60,9 +60,9 @@ class HumanAgent(object):
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("env")
-    parser.add_argument("--mode", choices=["noop", "random", "human"], default="random")
-    parser.add_argument("--max_steps", type=int, default=0)
+    parser.add_argument("env", type=str, help="name of the environment. Options: Gen3-v0")
+    parser.add_argument("--mode", choices=["noop", "random", "human"], default="random", help="mode of the agent")
+    parser.add_argument("--max_steps", type=int, default=0, help="maximum episode length")
     parser.add_argument("--fps",type=float)
     parser.add_argument("--once", action="store_true")
     parser.add_argument("--ignore_done", action="store_true")
@@ -74,6 +74,7 @@ if __name__ == '__main__':
     fps = args.fps or env.metadata.get('video.frames_per_second') or 100
     if args.max_steps == 0: 
         args.max_steps = env.spec.tags['wrapper_config.TimeLimit.max_episode_steps']
+        print("max_steps = ", args.max_steps)
 
     print("Press ESC to quit")
     reward = 0
@@ -100,7 +101,7 @@ if __name__ == '__main__':
             print("reward:", reward)
             print("done:", done)
             print("info:\tis_success:", info['is_success'])
-            env.render()
+            env.render() # default mode is human
             if done and not args.ignore_done:
                 break
         print("Done after {} steps".format(t + 1))
